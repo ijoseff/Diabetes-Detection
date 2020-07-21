@@ -8,13 +8,19 @@ from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
 import streamlit as st
 
+
 # Open and display an image
 image = Image.open('diabetes.png')
 st.image(image, caption = 'Diabetes Detection Using Machine Learning (RandomForestClassifier)', use_column_width = True)
 
 # Create a title and a subtitle
 st.write("""# Diabetes Detection""")
+
 st.write("""## Detect if someone has diabetes using machine learning and python 👨‍⚕️""")
+
+# Create a title and a subtitle at side bar
+st.sidebar.title("Diabetes Detection")
+st.sidebar.markdown("Detect if someone has diabetes using machine learning and python 👨‍⚕️")
 
 # Author Acknowledgement
 st.markdown("##### Created By Joseff Tan - [GitHub](https://github.com/ijoseff/Diabetes-Detection)")
@@ -39,6 +45,7 @@ st.subheader('Data Visualization')
 
 # Show the data as a chart
 chart = st.bar_chart(df)
+
 
 # Split the data into independent 'X' and dependent 'Y' variables
 X = df.iloc[:, 0:8].values

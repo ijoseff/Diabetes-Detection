@@ -1,2 +1,2 @@
 # Diabetes-Detection
-Diabetes Detection Demo
+Diabetes Detection Web App

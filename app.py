@@ -11,7 +11,7 @@ import streamlit as st
 
 # Open and display an image
 image = Image.open('diabetes.png')
-st.image(image, caption = 'Diabetes Detection Using Machine Learning (RandomForestClassifier)', use_column_width = True)
+st.image(image, use_column_width = True)
 
 # Create a title and a subtitle
 st.write("""# Diabetes Detection""")
@@ -30,6 +30,9 @@ df = pd.read_csv('diabetes.csv')
 
 # Set a subheader
 st.subheader('Data Information:')
+
+# Show data source
+st.markdown("This [data set](https://archive.ics.uci.edu/ml/datasets/diabetes) is originally from the National Institute of Diabetes and Digestive and Kidney Diseases. The objective of the dataset is to diagnostically predict whether or not a patient has diabetes, based on certain diagnostic measurements included in the dataset. Several constraints were placed on the selection of these instances from a larger database. In particular, all patients here are females at least 21 years old of Pima Indian heritage.")
 
 # Show the data as a table
 st.dataframe(df)
@@ -56,7 +59,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.25, rand
 
 # Get the feature input from the user
 def get_user_input():
-	Pregnancies = st.sidebar.slider('Pregnancies', 0, 17, 3)
+	Pregnancies = st.sidebar.slider('Pregnancies', 0, 20, 3)
 	Glucose = st.sidebar.slider('Glucose', 0, 199, 117)
 	Blood_Pressure = st.sidebar.slider('Blood Pressure', 0, 122, 72)
 	Skin_Thickness = st.sidebar.slider('Skin Thickness', 0, 99, 23)
@@ -97,7 +100,9 @@ st.write(str(accuracy_score(Y_test, RandomForestClassifier.predict(X_test) * 100
 
 # Store the models predictions in a variable
 prediction = RandomForestClassifier.predict(user_input)
+st.warning('Caution: The model needs more improvment!')
 
 # Set a subheader and display the classification
-st.subheader('Classification (0 = False | 1 = True):')
+st.subheader('Classification:')
+st.markdown('0 = FALSE | 1 = TRUE')
 st.write(prediction)

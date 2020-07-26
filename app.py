@@ -44,7 +44,7 @@ st.subheader('Data Statistics:')
 st.write(df.describe())
 
 # Set a subheader
-st.subheader('Data Visualization')
+st.subheader('Data Visualization:')
 
 # Show the data as a chart
 chart = st.bar_chart(df)

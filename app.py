@@ -100,7 +100,7 @@ st.write(str(accuracy_score(Y_test, RandomForestClassifier.predict(X_test) * 100
 
 # Store the models predictions in a variable
 prediction = RandomForestClassifier.predict(user_input)
-st.warning('Caution: The model needs more improvment!')
+st.warning('Caution: This model needs more improvement')
 
 # Set a subheader and display the classification
 st.subheader('Classification:')
